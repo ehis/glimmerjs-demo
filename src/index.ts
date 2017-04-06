@@ -1,7 +1,8 @@
 import App from './main';
 import { ComponentManager, setPropertyDidChange } from '@glimmer/component';
+import initializeCustomElements from '@glimmer/web-component';
 
-const app = new App();
+const app: any = new App()
 const containerElement = document.getElementById('app');
 
 setPropertyDidChange(() => {
@@ -17,3 +18,4 @@ app.registerInitializer({
 app.renderComponent('music-library', containerElement, null);
 
 app.boot();
+initializeCustomElements(app, []);

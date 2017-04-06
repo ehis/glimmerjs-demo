@@ -1,3 +1,14 @@
 <div>
-  <h1>Welcome to Glimmer!</h1>
+  <p>Currently Playing: {{currentPlayingSong}}</p>
+  <ul>
+    {{#each state.songs key="@index" as |song|}}
+      <li>{{song}}</li>
+    {{/each}}
+  </ul>
+
+  {{#if hasMoreSongs}}
+    <button onclick={{action next}}>Next</button>
+  {{else}}
+    <p>No More Songs :(</p>
+  {{/if}}
 </div>
